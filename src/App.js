@@ -1,6 +1,4 @@
 import React, { useState, useRef } from "react";
-import logo from "./logo.svg";
-import Fullscreen from "react-full-screen";
 
 import screenfull from "screenfull";
 
@@ -14,6 +12,8 @@ import { findDOMNode } from "react-dom";
 
 import Carousel from "./react-spring-3d-carousel/src/components/Carousel";
 
+const LIVE_URL = "https://thetastudio.netlify.app";
+
 const carouselState = {
   goToSlide: 0,
   offsetRadius: 2,
@@ -23,8 +23,7 @@ const carouselState = {
 
 function App() {
   const [index, setIndex] = useState(0);
-  const [streams, setStreams] = useState(STREAMS);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [streams, setStreams] = useState([]);
   const [muted, setMuted] = useState(false);
   const videoEl = useRef(null);
 
@@ -40,6 +39,14 @@ function App() {
       console.error(e);
     }
   };
+
+  useEffect(() => {
+    if (window.location.origin === LIVE_URL) {
+      refreshChannels();
+    } else {
+      setStreams(STREAMS);
+    }
+  }, []);
 
   const slides = streams.body.map((stream, i) => ({
     key: i,
