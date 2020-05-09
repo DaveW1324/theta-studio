@@ -44,7 +44,7 @@ function App() {
     if (window.location.origin === LIVE_URL) {
       refreshChannels();
     } else {
-      setStreams(STREAMS);
+      setStreams(STREAMS.body);
     }
   }, []);
 
