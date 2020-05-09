@@ -33,7 +33,7 @@ function App() {
     try {
       const result = await axios.get(url);
       const { data } = result;
-      setStreams(data);
+      setStreams(data.body);
     } catch (e) {
       alert("Unable to get streams: " + e);
       console.error(e);
@@ -48,7 +48,7 @@ function App() {
     }
   }, []);
 
-  const slides = streams.body.map((stream, i) => ({
+  const slides = streams.map((stream, i) => ({
     key: i,
     content: (
       <div>
@@ -94,7 +94,7 @@ function App() {
           </a>
         </p>
         <p>
-          <span className="orange">{streams.body.length}</span> streams found
+          <span className="orange">{streams.length}</span> streams found
         </p>
       </div>
       <Carousel
