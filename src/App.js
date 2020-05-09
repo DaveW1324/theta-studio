@@ -28,7 +28,7 @@ function App() {
   const videoEl = useRef(null);
 
   const refreshChannels = async (e) => {
-    e.preventDefault();
+    e && e.preventDefault();
     const url = "https://api.theta.tv/v1/theta/channel/list?number=100";
     try {
       const result = await axios.get(url);
