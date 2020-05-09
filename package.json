@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.7",
+    "@emotion/styled": "^10.0.7",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/uuid": "^7.0.3",
+    "axios": "^0.19.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-full-screen": "^0.2.4",
+    "react-player": "^2.0.1",
+    "react-scripts": "3.4.1",
+    "react-spring": "^8.0.5",
+    "screenfull": "^5.0.2",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
